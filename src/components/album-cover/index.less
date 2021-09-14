@@ -1,0 +1,33 @@
+.album-cover-wrapper {
+  width: 118px;
+  font-size: 12px;
+  .album-image {
+    position: relative;
+    height: 100px;
+    margin-top: 15px;
+    .cover {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      text-indent: -9999px;
+      background: url('../../assets/img/sprite_cover.png') no-repeat -145px -57px;
+      text-indent: -9999px;
+      background-position: 0 -570px;
+    }
+  }
+  .album-name {
+    width: 118px;
+    color: #000;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .artist {
+    color: #666;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,119 @@
+.header-wrapper{
+  width: 100%;
+  height: 70px;
+  background-color: #242221;
+
+  .content {
+    display: flex;
+    height: 70px;
+    justify-content: space-between;
+    color: #ffffff;
+    width: 1100px;
+    margin: 0 auto;
+    .header-left {
+      display: flex;
+      .logo {
+        display: inline-block;
+        width: 176px;
+        height: 69px;
+        background-image: url('../../assets/img/sprite_01.png');
+        background-position: 0 0;
+        text-indent: -9999px;
+      }
+      .header-group {
+        display: flex;
+        font-size: 14px;
+        .header-item {
+          position: relative;
+          padding: 0 19px;
+          height: 70px;
+          text-align: center;
+          line-height: 70px;
+          text-decoration: none;
+          span {
+            color: #ffffff;
+          }
+          &:hover {
+            /*text-decoration: none;*/
+            background-color: #000;
+          }
+        }
+        .link-active {
+          color: #fff;
+          background-color: #000;
+          /*下面的小三角*/
+          .icon {
+            position: absolute;
+            width: 12px;
+            height: 7px;
+            bottom: -1px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            background-image: url('../../assets/img/sprite_01.png');
+            background-position: 254px 0;
+          }
+        }
+      }
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      color: #ccc;
+      font-size: 12px;
+      .search-wrapper {
+        position: relative;
+        .search {
+          width: 221px;
+          height: 32px;
+          border-radius: 16px;
+          input {
+            font-size: 14px;
+            font-family: '微软雅黑';
+            &::placeholder {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+      .center {
+        width: 75px;
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        border: 1px solid #666;
+        border-radius: 16px;
+        margin: 0 13px;
+        background-color: transparent;
+        &:hover {
+          cursor: pointer;
+          border-color: #fff;
+          color: #fff;
+        }
+      }
+      .login {
+        a {
+          color: #666;
+          text-decoration: none;
+        }
+      }
+      .login:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+  .red-line {
+    height: 5px;
+    background-color: #c20b0b;
+  }
+}
+.profile-img {
+  width: 35px;
+  height: auto;
+  border-radius: 50%;
+}
+a:hover {
+  text-decoration: underline;
+}
