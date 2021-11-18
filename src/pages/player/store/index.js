@@ -1,4 +1,7 @@
 import reducer from './reducer'
+import { getSongDetailAction, getSongDetailArrayAction } from './actionCreator'
 export {
-    reducer
+    reducer,
+    getSongDetailAction,
+    getSongDetailArrayAction
 }

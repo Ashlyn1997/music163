@@ -1,11 +1,36 @@
 import React, {memo} from 'react'
-
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import './index.less'
 import {getSizeImage} from "../../utils/format-utils";
-
+import { message } from 'antd'
+import {
+    getSongDetailAction,
+    changeFirstLoad,
+  } from '../../pages/player/store/actionCreator'
+import { useAddPlaylist } from '../../hook/change-music';
 export default memo(function TopRanking(props) {
     const { info, index } = props
     const { tracks = [] } = info
+
+    // redux hook
+    const dispatch = useDispatch()
+    const { playList } = useSelector(
+        state => ({
+            playList: state.getIn(['player', 'playList']),
+        }),
+        shallowEqual
+    )
+    
+    const playMusic = (e, item) => {
+        e.preventDefault()
+        // 派发action歌曲详情
+        dispatch(getSongDetailAction(item.id))
+        // 不是首次加载，播放音乐
+        dispatch(changeFirstLoad(false))
+    }
+
+    // 添加到播放列表（使用自定义hook）
+    const addPlaylist = useAddPlaylist(playList, message)
     return (
         <div className='top-ranking-wrapper'>
             <div className='ranking-header'>
@@ -34,19 +59,21 @@ export default memo(function TopRanking(props) {
                     return (
                         <div key={item.id} className="list-item">
                             <div className="number">{index + 1}</div>
-                            <a href="/play" className="song-name">
+                            <a href="/play" className="song-name" onClick={e => playMusic(e, item)}>
                                 {item.name}
                             </a>
                             <div className="operation">
                                 <a
                                     href="/discover/recommend"
                                     className="sprite_02 btn play"
+                                    onClick={e => playMusic(e, item)}
                                 >
                                     {item.name}
                                 </a>
                                 <a
                                     href="/discover/recommend"
                                     className="sprite_icon2 btn addto"
+                                    onClick={e => addPlaylist(e, item.id)}
                                 >
                                     {item.name}
                                 </a>
